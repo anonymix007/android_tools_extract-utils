@@ -989,7 +989,7 @@ EOF
     [ "$COMMON" -eq 1 ] && local DEVICE="$DEVICE_COMMON"
     cat << EOF >> "$PRODUCTMK"
 PRODUCT_SOONG_NAMESPACES += \\
-    vendor/$VENDOR/$([ -z "$IS_QTI_COMPONENT" ] && echo ${DEVICE} || echo ${COMPONENT})
+    vendor/$VENDOR/$([ -z "$IS_QTI_COMPONENT" ] && echo ${DEVICE} || echo ${COMPONENT})$([ -n "$KERNEL_VERSION" ] && echo "/${KERNEL_VERSION}")
 
 EOF
 }
